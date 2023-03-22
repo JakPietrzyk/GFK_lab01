@@ -15,7 +15,7 @@ float brightness = 1.0f;
 class hexagon : public sf::Drawable
 {
 protected:
-    sf::Vector2f left_top, right_bottom, center;
+    sf::Vector2f left_top, right_bottom, center, p_1c, p_50;
     sf::Vector2f p[6]; // Kolejność punktów opisana w pliku PDF do laboratorium.
 public:
     void Set_Borders(sf::Vector2f _left_top, sf::Vector2f _right_bottom);
@@ -52,6 +52,10 @@ void hexagon::Set_Borders(sf::Vector2f _left_top, sf::Vector2f _right_bottom)
     right_bottom = _right_bottom;
     float a = ((right_bottom.y - left_top.y) / 2.0f + 0.5f) - 20.0f;
     center = left_top + sf::Vector2f((right_bottom.x - left_top.x) / 2.0f + 0.5f, (right_bottom.y - left_top.y) / 2.0f + 0.5f + 10);
+    p_1c.x = (p[1].x + center.x) / 2;
+    p_1c.y = (p[1].y + center.y) / 2;
+    p_50.x = (p[0].x + p[5].x) / 2;
+    p_50.y = (p[0].y + p[5].y) / 2;
 
     p[0] = center - sf::Vector2f(0.0f, a);
     p[1] = center - sf::Vector2f(0.5f * sqrt(3.0f) * a, 0.5f * a);
@@ -68,22 +72,24 @@ void hexagon::Draw_Border(sf::RenderTarget& target, sf::RenderStates states, sf:
     //sf::Text text2;
 
     // Tu trzeba narysować ramkę. I napisy.
+
     float a = ((right_bottom.y - left_top.y) / 2.0f + 0.5f) - 20.0f;
-    sf::RectangleShape rectangle;   
-    rectangle.setSize(sf::Vector2f(2*a, 2*a));
+    sf::RectangleShape rectangle;
+    rectangle.setSize(sf::Vector2f(2 * a, 2 * a));
     rectangle.setFillColor(sf::Color::Transparent);
     rectangle.setOutlineColor(sf::Color::Black);
     rectangle.setOutlineThickness(1.0f);
-    rectangle.setPosition(sf::Vector2f(p[1].x-15, p[0].y));
+    rectangle.setPosition(sf::Vector2f(p[1].x - 15, p[0].y));
 
     target.draw(rectangle);
+
 
     //sf::Text text;
     //text.setFont(*font);
     //text.setCharacterSize(10);
     //text.setFillColor(sf::Color::Red);
     //text.setPosition(center);
-    //text.setString("RGB");
+    //text.setString(name);
     //target.draw(text);
 
 }
@@ -96,75 +102,27 @@ public:
 
 void hexagon_RGB::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    //Tu trzeba narysować sześciokąt RGB.
-    sf::VertexArray line(sf::LinesStrip, 2);
-    for (int i = 0; i < 5; i++)
-    {
+    sf::VertexArray quad(sf::Quads, 12);
 
-        line[0].position = p[i];     line[0].color = sf::Color(0, 0, 0);
-        line[1].position = p[i + 1]; line[1].color = sf::Color(0, 0, 0);
-        target.draw(line);
-    }
-    line[0].position = p[5];     line[0].color = sf::Color(0, 0, 0);
-    line[1].position = p[0]; line[1].color = sf::Color(0, 0, 0);
-    target.draw(line);
 
-   
+    quad[0].position = p[0]; quad[0].color = sf::Color(255, 0, 0);
+    quad[1].position = p[1]; quad[1].color = sf::Color(255, 255, 0);
+    quad[2].position = center; quad[2].color = sf::Color(255, 255, 255);
+    quad[3].position = p[5]; quad[3].color = sf::Color(255, 0, 255);
 
-    float lengthOfEdge;
-    float a = 0.0;
-    float b = 0.0;
-    for (int i = 0; i < 255; i++)
-    {
-        sf::VertexArray point(sf::Points, 1);
-        for (int j = 0; j < 255; j++)
-        {
-            lengthOfEdge = sqrt((p[1].x - p[0].x)* (p[1].x - p[0].x) + (p[1].y - p[0].y)* (p[1].y - p[0].y));
-            float x = p[1].x + i;
-            float y = p[0].y + j;
-            if (rhombus(p[0], p[1], sf::Vector2f(x, y), a, b))
-            {
-                point[0].position = sf::Vector2f(x, y);
-                point[0].color = sf::Color(255*brightness, b*lengthOfEdge*2 * brightness, a*lengthOfEdge*2 * brightness);
-                target.draw(point);
-            }
-        }
-    }
-    
-    for (int i = 0; i < 255; i++)
-    {
-        sf::VertexArray point(sf::Points, 1);
-        for (int j = 0; j < 255; j++)
-        {
-            float x = p[1].x + i;
-            float y = p[0].y + j;
-            if (rhombus(p[2], p[3], sf::Vector2f(x, y), a, b))
-            {
-                point[0].position = sf::Vector2f(x, y);
-                point[0].color = sf::Color(b*lengthOfEdge*2 * brightness, a*lengthOfEdge*2 * brightness, 255 * brightness);
-                target.draw(point);
-            }
-        }
-    }
-    for (int i = 0; i < 255; i++)
-    {
-        sf::VertexArray point(sf::Points, 1);
-        for (int j = 0; j < 255; j++)
-        {
-            float x = p[1].x + i;
-            float y = p[0].y + j;
-            if (rhombus(center, p[3], sf::Vector2f(x, y), a, b))
-            {
-                point[0].position = sf::Vector2f(x, y);
-                /*point[0].color = sf::Color(j, 255, i);*/
-                point[0].color = sf::Color((255-a*lengthOfEdge*2) * brightness, 255 * brightness, (255-b*lengthOfEdge*2) * brightness);
-                target.draw(point);
-            }
-        }
-    }
-    
+    quad[4].position = p[1]; quad[4].color = sf::Color(255, 255, 0);
+    quad[5].position = p[2]; quad[5].color = sf::Color(0, 255, 0);
+    quad[6].position = p[3]; quad[6].color = sf::Color(0, 255, 255);
+    quad[7].position = center; quad[7].color = sf::Color(255, 255, 255);
 
+    quad[8].position = p[3]; quad[8].color = sf::Color(0, 255, 255);
+    quad[9].position = p[4]; quad[9].color = sf::Color(0, 0, 255);
+    quad[10].position = p[5]; quad[10].color = sf::Color(255, 0, 255);
+    quad[11].position = center; quad[11].color = sf::Color(255, 255, 255);
+
+    target.draw(quad);
     Draw_Border(target, states, "RGB");
+
 }
 
 class hexagon_CMY : public hexagon
@@ -189,144 +147,25 @@ void hexagon_CMY::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(line);
 
 
-    //float lengthOfEdge;
-    //float a = 0.0;
-    //float b = 0.0;
-    //float C;
-    //float M;
-    //float Y;
-    //float K;
-    //for (int i = 0; i < 255; i++)
-    //{
-    //    sf::VertexArray point(sf::Points, 1);
-    //    for (int j = 0; j < 255; j++)
-    //    {
-    //        lengthOfEdge = sqrt((p[1].x - p[0].x) * (p[1].x - p[0].x) + (p[1].y - p[0].y) * (p[1].y - p[0].y));
-    //        float x = p[1].x + i;
-    //        float y = p[0].y + j;
-    //        if (rhombus(p[0], p[1], sf::Vector2f(x, y), a, b))
-    //        {
-    //            C = 255 ;
-    //            M = a * lengthOfEdge * 2 ;
-    //            Y = b * lengthOfEdge * 2 ;
-    //            K = C;
-    //            if (M > K)
-    //            {
-    //                K = M;
-    //            }
-    //            else if (Y > K)
-    //            {
-    //                K = Y;
-    //            }
+    sf::VertexArray quad(sf::Quads, 12);
 
-    //            K = 1 - K;
-    //            C = (1 - C - K) / (1 - K);
-    //            M = (1 - M - K) / (1 - K);
-    //            Y = (1 - Y - K) / (1 - K);
 
-    //            point[0].position = sf::Vector2f(x, y);
-    //            //point[0].color = sf::Color(1-255 * brightness, 1-a * lengthOfEdge * 2 * brightness, 1-b * lengthOfEdge * 2 * brightness);
-    //            point[0].color = sf::Color(C, M, Y, K * brightness);
-    //            target.draw(point);
-    //        }
-    //    }
-    //}
+    quad[0].position = p[0]; quad[0].color = sf::Color(0, 255, 255);
+    quad[1].position = p[1]; quad[1].color = sf::Color(0, 0, 255);
+    quad[2].position = center; quad[2].color = sf::Color(0, 0, 0);
+    quad[3].position = p[5]; quad[3].color = sf::Color(0, 255, 0);
 
-    //for (int i = 0; i < 255; i++)
-    //{
-    //    sf::VertexArray point(sf::Points, 1);
-    //    for (int j = 0; j < 255; j++)
-    //    {
-    //        float x = p[1].x + i;
-    //        float y = p[0].y + j;
-    //        if (rhombus(p[2], p[3], sf::Vector2f(x, y), a, b))
-    //        {
-    //            C = 255 - b * lengthOfEdge;
-    //            M = 255;
-    //            Y = 255 - a * lengthOfEdge;
-    //            K = C;
-    //            if (M < K)
-    //            {
-    //                K = M;
-    //            }
-    //            else if (Y < K)
-    //            {
-    //                K = Y;
-    //            }
+    quad[4].position = p[1]; quad[4].color = sf::Color(0, 0, 255);
+    quad[5].position = p[2]; quad[5].color = sf::Color(255, 0, 255);
+    quad[6].position = p[3]; quad[6].color = sf::Color(255, 0, 0);
+    quad[7].position = center; quad[7].color = sf::Color(0, 0, 0);
 
-    //            point[0].position = sf::Vector2f(x, y);
-    //            //point[0].color = sf::Color(1-255 * brightness, 1-a * lengthOfEdge * 2 * brightness, 1-b * lengthOfEdge * 2 * brightness);
-    //            point[0].color = sf::Color(C - K, M - K, Y - K, K * brightness);
-    //            //target.draw(point);
-    //            point[0].position = sf::Vector2f(x, y);
-    //            //point[0].color = sf::Color(1 - 255 - b * lengthOfEdge * 2 * brightness, 1 - 255 * brightness, 1 - 255 - a * lengthOfEdge * 2 * brightness);
-    //            target.draw(point);
-    //        }
-    //    }
-    //}
-    //for (int i = 0; i < 255; i++)
-    //{
-    //    sf::VertexArray point(sf::Points, 1);
-    //    for (int j = 0; j < 255; j++)
-    //    {
-    //        float x = p[1].x + i;
-    //        float y = p[0].y + j;
-    //        if (rhombus(center, p[3], sf::Vector2f(x, y), a, b))
-    //        {
-    //            C = 255 + a * lengthOfEdge;
-    //            M = 255 + b * lengthOfEdge;
-    //            Y = 255;
-    //            K = C;
-    //            if (M < K)
-    //            {
-    //                K = M;
-    //            }
-    //            else if (Y < K)
-    //            {
-    //                K = Y;
-    //            }
+    quad[8].position = p[3]; quad[8].color = sf::Color(255, 0, 0);
+    quad[9].position = p[4]; quad[9].color = sf::Color(255, 255, 0);
+    quad[10].position = p[5]; quad[10].color = sf::Color(0, 255, 0);
+    quad[11].position = center; quad[11].color = sf::Color(0, 0, 0);
 
-    //            point[0].position = sf::Vector2f(x, y);
-    //            //point[0].color = sf::Color(1-255 * brightness, 1-a * lengthOfEdge * 2 * brightness, 1-b * lengthOfEdge * 2 * brightness);
-    //            point[0].color = sf::Color(C - K, M - K, Y - K, K * brightness);
-    //            target.draw(point);
-
-    //            point[0].position = sf::Vector2f(x, y);
-    //            /*point[0].color = sf::Color(j, 255, i);*/
-    //            //point[0].color = sf::Color(1 -255+ a * lengthOfEdge * 2 * brightness, 1 -255+ b * lengthOfEdge * 2 * brightness, 1 - 255 * brightness);
-    //           
-    //            target.draw(point);
-    //        }
-    //    }
-    //}
-
-    sf::VertexArray vertices(sf::Triangles, 6 * 3);
-    for (int i = 0; i < 6; i++)
-    {
-        vertices[3 * i].position = p[i];
-        vertices[3 * i + 1].position = p[(i + 1) % 6];
-        vertices[3 * i + 2].position = center;
-    }
-    vertices[0].color = sf::Color(0, 255, 255, 255 * brightness);
-    vertices[1].color = sf::Color(0, 0, 255, 255 * brightness);
-    vertices[2].color = sf::Color(0, 0, 0, 255 * brightness);
-    vertices[3].color = sf::Color(0, 0, 255, 255 * brightness);
-    vertices[4].color = sf::Color(255, 0, 255, 255 * brightness);
-    vertices[5].color = sf::Color(0, 0, 0, 255 * brightness);
-    vertices[6].color = sf::Color(255, 0, 255, 255 * brightness);
-    vertices[7].color = sf::Color(255, 0, 0, 255 * brightness);
-    vertices[8].color = sf::Color(0, 0, 0, 255 * brightness);
-    vertices[9].color = sf::Color(255, 0, 0, 255 * brightness);
-    vertices[10].color = sf::Color(255, 255, 0, 255 * brightness);
-    vertices[11].color = sf::Color(0, 0, 0, 255 * brightness);
-    vertices[12].color = sf::Color(255, 255, 0, 255 * brightness);
-    vertices[13].color = sf::Color(0, 255, 0, 255 * brightness);
-    vertices[14].color = sf::Color(0, 0, 0, 255 * brightness);
-    vertices[15].color = sf::Color(0, 255, 0, 255 * brightness);
-    vertices[16].color = sf::Color(0, 255, 255, 255 * brightness);
-    vertices[17].color = sf::Color(0, 0, 0, 255 * brightness);
-    target.draw(vertices, states);
-
+    target.draw(quad);
     Draw_Border(target, states, "CMY");
 }
 
@@ -334,6 +173,8 @@ class hexagon_HSL : public hexagon
 {
 public:
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void draw2(sf::RenderTarget& target, sf::RenderStates states) const;
+    //virtual void draw3(sf::RenderTarget& target, sf::RenderStates states) const;
 };
 float Hue_2_RGB(float v1, float v2, float vH) {
     if (vH < 0) {
@@ -368,6 +209,70 @@ sf::Color HSL_RGB(float h, float s, float l) {
         var1 = 2 * l - var2;
         return sf::Color(255 * Hue_2_RGB(var1, var2, h + (1.0 / 3.0)), 255 * Hue_2_RGB(var1, var2, h), 255 * Hue_2_RGB(var1, var2, h - (1.0 / 3.0)));
     }
+}
+void hexagon_HSL::draw2(sf::RenderTarget& target, sf::RenderStates states) const {
+    float a = 0.0;
+    float b = 0.0;
+    float H;
+    float S;
+    float L;
+
+    int scale = 2;
+
+    for (int i = 0; i < scale; i++) {
+        sf::VertexArray quad(sf::Quads, 4);
+        for (int j = 0; j < 4; j++) {
+            float x = p[0].x + ((255 / scale) * i);
+            float y = p[0].y + ((255 / scale) * i);
+            if (rhombus(p[0], p[1], sf::Vector2f(x, y), a, b))
+            {
+                H = 0;
+                S = a;
+                L = b;
+                quad[0].position = sf::Vector2f(x, y);
+                quad[0].color = HSL_RGB(H, S, L * brightness);
+            }
+            x = p[0].x + ((255 / scale) * i) + (255 / scale);
+            y = p[0].y + ((255 / scale) * i);
+            if (rhombus(p[0], p[1], sf::Vector2f(x, y), a, b))
+            {
+                H = 0;
+                S = a;
+                L = b;
+                quad[1].position = sf::Vector2f(x, y);
+                quad[1].color = HSL_RGB(H, S, L * brightness);
+            }
+            x = p[0].x + ((255 / scale) * i);
+            y = p[0].y + ((255 / scale) * i) + (255 / scale);
+            if (rhombus(p[0], p[1], sf::Vector2f(x, y), a, b))
+            {
+                H = 0;
+                S = a;
+                L = b;
+                quad[2].position = sf::Vector2f(x, y);
+                quad[2].color = HSL_RGB(H, S, L * brightness);
+            }
+            x = p[0].x + ((255 / scale) * i) + (255 / scale);
+            y = p[0].y + ((255 / scale) * i) + (255 / scale);
+            if (rhombus(p[0], p[1], sf::Vector2f(x, y), a, b))
+            {
+                H = 0;
+                S = a;
+                L = b;
+                quad[3].position = sf::Vector2f(x, y);
+                quad[3].color = HSL_RGB(H, S, L * brightness);
+            }
+        }
+        target.draw(quad);
+    }
+
+    /*
+    quad[0].position = p[0]; quad[0].color = HSL_RGB(1, 0, 0);
+    quad[1].position = p[1]; quad[1].color = HSL_RGB(1, 1, 0);
+    quad[2].position = center; quad[2].color = HSL_RGB(1, 1, 1);
+    quad[3].position = p[5]; quad[3].color = HSL_RGB(1, 0, 1);
+    */
+
 }
 void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
@@ -411,6 +316,7 @@ void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
             }
         }
     }
+
     for (int i = 0; i < 255; i++)
     {
         sf::VertexArray point(sf::Points, 1);
@@ -429,6 +335,8 @@ void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
             }
         }
     }
+
+    
     for (int i = 0; i < 255; i++)
     {
         sf::VertexArray point(sf::Points, 1);
@@ -447,6 +355,7 @@ void hexagon_HSL::draw(sf::RenderTarget& target, sf::RenderStates states) const
             }
         }
     }
+    
     Draw_Border(target, states, "HSL");
 }
 
@@ -572,8 +481,8 @@ void hexagon_HSB::draw(sf::RenderTarget& target, sf::RenderStates states) const
             float y = p[0].y + j;
             if (rhombus(center, p[3], sf::Vector2f(x, y), a, b))
             {
-                H = 1-a;
-                S = 1-b;
+                H = 1 - a;
+                S = 1 - b;
                 V = 1;
                 point[0].position = sf::Vector2f(x, y);
                 point[0].color = HSB_RGB(H, S, V * brightness);
