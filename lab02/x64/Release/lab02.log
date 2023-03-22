@@ -1,0 +1,95 @@
+﻿  main.cpp
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(137,81): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(137,63): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(158,76): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(158,58): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(174,74): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(174,47): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(232,76): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(232,52): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(253,93): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(253,52): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(269,80): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(269,50): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(299,19): warning C4244: "return": konwersja z "double" do "float", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(305,46): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(305,37): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(305,28): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(316,56): warning C4244: "argument": konwersja z "double" do "float", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(316,134): warning C4244: "argument": konwersja z "double" do "float", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(316,108): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(316,76): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(316,30): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(637,46): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(637,37): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(637,28): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(679,58): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(679,45): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\lab02\main.cpp(679,32): warning C4244: "argument": konwersja z "float" do "sf::Uint8", możliwa utrata danych
+sfml-window-s.lib(VideoModeImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_EnumDisplaySettingsW
+sfml-window-s.lib(CursorImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_CreateBitmap
+sfml-window-s.lib(CursorImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_DeleteObject
+sfml-window-s.lib(CursorImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_CreateDIBSection
+sfml-window-s.lib(CursorImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetDC
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetDC
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetDC
+sfml-window-s.lib(CursorImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ReleaseDC
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ReleaseDC
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ReleaseDC
+sfml-window-s.lib(CursorImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_LoadCursorW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_LoadCursorW
+sfml-window-s.lib(CursorImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_DestroyCursor
+sfml-window-s.lib(CursorImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_CreateIconIndirect
+sfml-window-s.lib(CursorImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_CopyIcon
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ChoosePixelFormat
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_DescribePixelFormat
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetPixelFormat
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SetPixelFormat
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SwapBuffers
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_CreateWindowExA
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_DestroyWindow
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_DestroyWindow
+sfml-window-s.lib(WglContext.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ShowWindow
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ShowWindow
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetDeviceCaps
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_TrackMouseEvent
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_TranslateMessage
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_DispatchMessageW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_PeekMessageW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SendMessageW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_RegisterDeviceNotificationW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_DefWindowProcW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_CallWindowProcW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_RegisterClassW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_UnregisterClassW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_CreateWindowExW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_FlashWindowEx
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SetWindowPos
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetKeyState
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_MapVirtualKeyW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetCapture
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SetCapture
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ReleaseCapture
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetForegroundWindow
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SetForegroundWindow
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SetWindowTextW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetClientRect
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetWindowRect
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_AdjustWindowRect
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ShowCursor
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SetCursor
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ScreenToClient
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_MapWindowPoints
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ClipCursor
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetWindowLongW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SetWindowLongW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetWindowLongPtrW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_SetWindowLongPtrW
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_GetWindowThreadProcessId
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_CreateIcon
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_DestroyIcon
+sfml-window-s.lib(WindowImplWin32.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_ChangeDisplaySettingsW
+sfml-window-s.lib(JoystickImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_RegCloseKey
+sfml-window-s.lib(JoystickImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_RegOpenKeyExW
+sfml-window-s.lib(JoystickImpl.cpp.obj) : error LNK2001: nierozpoznany symbol zewnętrzny __imp_RegQueryValueExW
+C:\1Programowanie\C++ Projects\semestr4\GFK\lab02\x64\Release\lab02.exe : fatal error LNK1120: liczba nierozpoznanych elementów zewnętrznych: 59
